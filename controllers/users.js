@@ -18,7 +18,7 @@ const handleuserlogin = async (req, res) => {
       isuserinDB.password
     );
 
-    if (isuserinDB.password) {
+    if (ispasswordcorrect) {
       const getuserreservationdetails = await Reservation.find({
         userid: isuserinDB._id,
       });
@@ -26,6 +26,7 @@ const handleuserlogin = async (req, res) => {
       //if user has no reservation,  we will send empty array
       return res.json({
         msg: {
+          login: "success",
           pastreservationDetails: getuserreservationdetails,
         },
       });

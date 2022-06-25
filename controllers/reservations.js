@@ -4,7 +4,7 @@ const createReservation = async (req, res) => {
   const { roomid, startdate, enddate, numberofpeople } = req.body; //TODO (will change the username from req.body to req.headers and will grab the username from sent accesstoken)
   const authheader = req.headers["authorization"];
 
-  const userid = authheader.split(" ")[1]; //TODO will change the userid with token and get the user id from token
+  const userid = authheader.split(" ")[1]; //TODO (will change the userid with token and get the user id from token
   try {
     const createdreservation = await Reservation.create({
       roomid,
